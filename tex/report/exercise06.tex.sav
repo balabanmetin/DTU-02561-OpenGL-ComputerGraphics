@@ -1,0 +1,178 @@
+\chapter{Exercise 6}
+\label{sec:ugeopgave-6}
+
+The purpose of the exercise is to understand the principles of 2D texture mapping and how it can be used for polygon meshes. Furthermore, the purpose of the exercise is to understand the process of hidden surface removal and back-face culling
+
+\section{Part 1}
+\label{sec:del-1-1}
+
+\subsection{Subpart a}
+\label{subsec:del-1-a}
+You can see the scene when hidden surface removal is disabled and enabled in Figure \ref{fig:6-1-1-1} and Figure \ref{fig:6-1-1-2}.
+When hidden surface removal is enabled, the cube and left half of small polygon becomes invisible (we cannot see the difference occuring in small polygon because both big and small polygon is green).
+
+\begin{figure}[hp]
+\centering
+\includegraphics[width=8cm]{../Screenshots/ex-6/1a-1.png}
+\caption{Hidden surface removal is disabled}
+\label{fig:6-1-1-1}
+\end{figure}
+
+\begin{figure}[hp]
+\centering
+\includegraphics[width=8cm]{../Screenshots/ex-6/1a-2.png}
+\caption{Hidden surface removal is enabled}
+\label{fig:6-1-1-2}
+\end{figure}
+
+\subsection{Subpart b}
+\label{subsec:del-1-b}
+
+When GL\_BACK mode is activated (Figure \ref{fig:6-1-2-1}) , small polygon disappears. When GL\_FRONT mode is enabled (Figure  \ref{fig:6-1-2-2}), big polygon disappears. When GL\_FRONT\_AND\_BACK mode is activated (Figure  \ref{fig:6-1-2-3}), small and big polygon and the cube disappears.
+
+\begin{figure}
+        \centering
+        \begin{subfigure}[b]{0.4\textwidth}
+                \includegraphics[width=6cm]{../Screenshots/ex-6/1b-1.png}
+                \caption{GL\_BACK}
+                \label{fig:6-1-2-1}
+        \end{subfigure}
+
+        \begin{subfigure}[b]{0.4\textwidth}
+                \includegraphics[width=6cm]{../Screenshots/ex-6/1b-2.png}
+                \caption{GL\_FRONT}
+                \label{fig:6-1-2-2}
+        \end{subfigure}
+
+        \begin{subfigure}[b]{0.4\textwidth}
+                \includegraphics[width=6cm]{../Screenshots/ex-6/1b-3.png}
+                \caption{GL\_FRONT\_AND\_BACK}
+                \label{fig:6-1-2-3}
+        \end{subfigure}
+        \caption{Different face culling modes}\label{fig:6-1-2}
+\end{figure}
+
+\subsection{Subpart c}
+\label{subsec:del-1-c}
+
+If the angle between normal vector of a primitive and camera view direction is greater then 90 degrees, then the primitive is front facing. Otherwise, it is back facing.
+
+
+\section{Part 2}
+\label{sec:del-2-1}
+
+I use the projection matrix given below.\\
+\begin{lstlisting}
+Perspective(24.3,WINDOW_WIDTH/(float)WINDOW_HEIGHT, 0.01, 10)
+\end{lstlisting}
+
+\smallskip
+You can see resulting view of the scene in Figure \ref{fig:6-2}.
+
+\begin{figure}[hp]
+\centering
+\includegraphics[width=8cm]{../Screenshots/ex-6/2.png}
+\caption{Parts are clipped}
+\label{fig:6-2}
+\end{figure}
+
+\section{Part 3}
+\label{sec:del-3-1}
+
+Her skulle per-vertex shadingen fra forrige delopgave erstattes med
+per-fragment shading, dvs. Phong-shading.
+
+Det blev gjort vha. følgende to shaderprogrammer:
+
+\begin{verbatim}
+// Vertex shader
+varying vec3 N;
+varying vec3 L;
+varying vec3 E;
+varying vec3 H;
+
+void main()
+{
+  gl_Position = ftransform();
+
+  vec4 eyePosition = gl_ModelViewMatrix * gl_Vertex;
+  vec4 eyeLightPos = gl_LightSource[0].position;
+
+  N = normalize(gl_NormalMatrix * gl_Normal);
+  L = normalize(eyeLightPos.xyz - eyePosition.xyz);
+  E = -normalize(eyePosition.xyz);
+  H = normalize(L + E);
+}
+\end{verbatim} \\
+
+\begin{verbatim}
+// Fragment shader
+varying vec3 N;
+varying vec3 L;
+varying vec3 E;
+varying vec3 H;
+
+void main()
+{
+  vec3 Normal = normalize(N);
+  vec3 Light  = normalize(L);
+  vec3 Eye    = normalize(E);
+  vec3 Half   = normalize(H);
+
+  float Kd = max(dot(Normal, Light), 0.0);
+  float Ks = pow(max(dot(Half, Normal), 0.0), gl_FrontMaterial.shininess);
+  float Ka = 0.2;
+
+  vec4 diffuse  = Kd * gl_FrontLightProduct[0].diffuse;
+  vec4 specular = Ks * gl_FrontLightProduct[0].specular;
+  vec4 ambient  = Ka * gl_FrontLightProduct[0].ambient;
+
+  gl_FragColor = diffuse + specular + ambient;
+}
+\end{verbatim}
+
+Resultatet kan ses på figur \ref{fig:6-3}.
+
+\begin{figure}[hp]
+\centering
+\includegraphics[width=8cm]{../exercise6/screenshots/part3.png}
+\caption{Per-fragment Phong-shading i GLSL}
+\label{fig:6-3}
+\end{figure}
+
+\section{Del 4}
+\label{sec:del-4-1}
+
+Teksturen på tekanden, der kan ses på figur \ref{fig:6-4}, blev påsat
+ved hjælp af følgende tilføjelser i shaderprogrammerne:
+
+\begin{verbatim}
+// Tilføjelse i vertexshaderen
+
+varying vec2 texpos
+...
+texpos = vec2(gl_MultiTexCoord0);
+\end{verbatim} \\
+
+\begin{verbatim}
+// Tilføjelse i fragmentshaderen
+
+uniform sampler2D tex;
+varying vec2 texpos;
+...
+vec4 texel = texture2D(tex, texpos);
+gl_FragColor = (diffuse + specular + ambient) * texel;
+\end{verbatim}
+
+
+\begin{figure}[hp]
+\centering
+\includegraphics[width=8cm]{../exercise6/screenshots/part4.png}
+\caption{Per-fragment Phong-shading med tekstur i GLSL}
+\label{fig:6-4}
+\end{figure}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "report_main"
+%%% End: 

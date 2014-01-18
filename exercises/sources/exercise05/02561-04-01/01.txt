@@ -1,0 +1,2 @@
+According to mouse position information, makes decision of the action that will be carried out. 
+Those actions are draw-triangle, draw-line, draw-rectang;e, draw-point and drawing-mode.

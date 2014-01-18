@@ -1,0 +1,4 @@
+	modelView=RotateX(atan(1.0/2)/DegreesToRadians)*
+		Translate(0,-3,-6);
+
+	modelView=Translate(0,3,0)*RotateY(30)*Scale(2,2,2);

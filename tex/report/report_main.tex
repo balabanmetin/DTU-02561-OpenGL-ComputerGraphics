@@ -1,0 +1,52 @@
+\documentclass[a4paper,11pt,english,titlingpage,oneside]{memoir}
+\usepackage{report}
+\usepackage{subcaption}
+\usepackage{listings}
+
+\date{January 2013}
+
+\newcommand{\mytitle}{Computer Graphics (fall 2013)}
+\newcommand{\mysubject}{DTU 02561}
+
+\preauthor{\begin{center}\footnotesize\begin{tabular}{llll}}
+\postauthor{\end{tabular}\end{center}}
+\author{
+    Metin Balaban & s131105 & \email{metin.balaban@metu.edu.tr} \\
+}
+\title{\mytitle}
+\begin{document}
+
+\preamble
+
+%\chapter*{Formaliteter}
+
+%Alle ugeopgaver og projektet, samt rapportafsnit der beskriver dem, er
+%udarbejdet ligeligt af Julian Møller og Steen Nordsmark Pedersen.
+
+%Eksekverbare filer til de forskellige ugeopgaver er at finde i
+%mapperne \texttt{exercise\emph{N}/executables}, hvor \emph{N} angiver
+%ugeopgavens nummer.
+
+\include{exercise01}
+\include{exercise02}
+\include{exercise03}
+\include{exercise04}
+\include{exercise05}
+\include{exercise06}
+\include{exercise07}
+\include{exercise08}
+\include{exercise09}
+\include{exercise10}
+\include{exercise11}
+\include{project}
+
+
+\bibliographystyle{plain}
+\bibliography{citations}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "report_main"
+%%% End: 

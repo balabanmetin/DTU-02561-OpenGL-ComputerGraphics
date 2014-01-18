@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="Angel\InitShader.cpp">
+      <Filter>Dependencies</Filter>
+    </ClCompile>
+    <ClCompile Include="main-01-03.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Angel\Angel.h">
+      <Filter>Dependencies</Filter>
+    </ClInclude>
+    <ClInclude Include="Angel\CheckError.h">
+      <Filter>Dependencies</Filter>
+    </ClInclude>
+    <ClInclude Include="Angel\mat.h">
+      <Filter>Dependencies</Filter>
+    </ClInclude>
+    <ClInclude Include="Angel\vec.h">
+      <Filter>Dependencies</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="color-shader.vert" />
+    <None Include="color-shader.frag" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Dependencies">
+      <UniqueIdentifier>{7b41dfe1-9565-4663-9d27-cc5fb44a4f3a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,12 @@
+﻿1) Vertex attributes are spesific to that vertex: each attribute might differentiate from others. 
+Unlike vertex attributes, uniform vertex variables are the same for each vertex in model. They can be changed in display function.
+
+2-3-4) , a vertex shader will transform the representation of a vertex location from whatever coordinate system in which it is 
+speciﬁed to a representation in clip coordinates for the rasterizer (2).Each invocation of the vertex shader outputs a vertex 
+that then goes through primitive assembly and clipping before reaching the rasterizer. The rasterizer outputs fragments
+for each primitive inside the clipping volume (4) . Each fragment invokes an execution of the fragment shader (3). Fragment 
+shader assigns colors to fragments.
+
+5) Yes it is possible. We need to output two color vectors from vertex shader: color1 and color2. By using uniform blendingValue,
+we can blend two colors in fragment shader. Texturing is applied in fragment shader generally. This is because blending in 
+fragment shader sounds more natural.

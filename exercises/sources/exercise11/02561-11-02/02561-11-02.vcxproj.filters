@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="Angel\InitShader.cpp">
+      <Filter>Dependencies</Filter>
+    </ClCompile>
+    <ClCompile Include="Angel\NURBSCurve.cpp">
+      <Filter>Dependencies</Filter>
+    </ClCompile>
+    <ClCompile Include="Angel\NURBS.cpp">
+      <Filter>Dependencies</Filter>
+    </ClCompile>
+    <ClCompile Include="angel\NURBSRenderer.cpp">
+      <Filter>Dependencies</Filter>
+    </ClCompile>
+    <ClCompile Include="main-11-02.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="nurbs.frag" />
+    <None Include="nurbs.vert" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Dependencies">
+      <UniqueIdentifier>{52aad64b-38c2-44d0-b2e8-c5ae0c681c8b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Angel\Angel.h">
+      <Filter>Dependencies</Filter>
+    </ClInclude>
+    <ClInclude Include="Angel\CheckError.h">
+      <Filter>Dependencies</Filter>
+    </ClInclude>
+    <ClInclude Include="Angel\mat.h">
+      <Filter>Dependencies</Filter>
+    </ClInclude>
+    <ClInclude Include="Angel\vec.h">
+      <Filter>Dependencies</Filter>
+    </ClInclude>
+    <ClInclude Include="Angel\NURBSCurve.h">
+      <Filter>Dependencies</Filter>
+    </ClInclude>
+    <ClInclude Include="Angel\NURBS.h">
+      <Filter>Dependencies</Filter>
+    </ClInclude>
+    <ClInclude Include="angel\NURBSRenderer.h">
+      <Filter>Dependencies</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

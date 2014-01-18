@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="Angel\InitShader.cpp">
+      <Filter>Angel</Filter>
+    </ClCompile>
+    <ClCompile Include="Angel\ObjLoader.cpp">
+      <Filter>Angel</Filter>
+    </ClCompile>
+    <ClCompile Include="main-04-02.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Angel">
+      <UniqueIdentifier>{52aad64b-38c2-44d0-b2e8-c5ae0c681c8b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Angel\Angel.h">
+      <Filter>Angel</Filter>
+    </ClInclude>
+    <ClInclude Include="Angel\CheckError.h">
+      <Filter>Angel</Filter>
+    </ClInclude>
+    <ClInclude Include="Angel\mat.h">
+      <Filter>Angel</Filter>
+    </ClInclude>
+    <ClInclude Include="Angel\vec.h">
+      <Filter>Angel</Filter>
+    </ClInclude>
+    <ClInclude Include="Angel\ObjLoader.h">
+      <Filter>Angel</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="phong-shader.vert" />
+    <None Include="phong-shader.frag" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\02561-04-01\03.txt" />
+  </ItemGroup>
+</Project>

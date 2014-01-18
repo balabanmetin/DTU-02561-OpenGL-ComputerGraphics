@@ -1,0 +1,7 @@
+In exercise01, vertex elements are considered in 2D space so their positions are represented cartesian coordinates. 
+On the other hand, in this exercise, vertex elements are in 3D space and their positions are represented in 
+homogenous coordinates, which are vec4.
+In display function, we describe model-view properties of our vision (camera). In this exercise, it is defined with
+triplet of eye, at, up. LookAt() function, which takes an eye position, a position to look at, and an up vector, 
+all in object space coordinates computes the inverse camera transform according to its parameters 
+and multiplies it onto the current matrix stack.

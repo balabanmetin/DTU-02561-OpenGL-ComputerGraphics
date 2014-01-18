@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="Angel\InitShader.cpp">
+      <Filter>Angel</Filter>
+    </ClCompile>
+    <ClCompile Include="main-03-01.cpp" />
+    <ClCompile Include="Angel\vtk_reader.cpp">
+      <Filter>Angel</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Angel">
+      <UniqueIdentifier>{52aad64b-38c2-44d0-b2e8-c5ae0c681c8b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Angel\Angel.h">
+      <Filter>Angel</Filter>
+    </ClInclude>
+    <ClInclude Include="Angel\CheckError.h">
+      <Filter>Angel</Filter>
+    </ClInclude>
+    <ClInclude Include="Angel\mat.h">
+      <Filter>Angel</Filter>
+    </ClInclude>
+    <ClInclude Include="Angel\vec.h">
+      <Filter>Angel</Filter>
+    </ClInclude>
+    <ClInclude Include="Angel\vtk_reader.h">
+      <Filter>Angel</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="blending.frag" />
+    <None Include="blending.vert" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="03.txt" />
+  </ItemGroup>
+</Project>

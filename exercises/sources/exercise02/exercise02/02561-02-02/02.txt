@@ -1,0 +1,2 @@
+b-c)Translate*RotateY*scale*I
+c) matrix multiplication is NOT a commutative operation so the order is IMPORTANT.

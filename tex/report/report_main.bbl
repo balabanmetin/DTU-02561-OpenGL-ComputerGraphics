@@ -1,0 +1,13 @@
+\begin{thebibliography}{1}
+
+\bibitem{Glassner:1999:AGN:318952}
+Andrew Glassner.
+\newblock {\em Andrew Glassner's Notebook: Recreational Computer Graphics}.
+\newblock Morgan Kaufmann Publishers Inc., San Francisco, CA, USA, 1999.
+
+\bibitem{Schlick94aninexpensive}
+Christophe Schlick.
+\newblock An inexpensive brdf model for physically-based rendering.
+\newblock {\em Computer Graphics Forum}, 13:233--246, 1994.
+
+\end{thebibliography}

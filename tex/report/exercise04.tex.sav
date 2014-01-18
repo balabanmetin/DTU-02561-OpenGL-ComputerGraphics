@@ -1,0 +1,94 @@
+
+\chapter{Exercise 4}
+\label{cha:ugeopgave-4}
+
+The purpose of this exercise is to get acquainted with lighting and shading in OpenGL and GLSL.
+
+\section{Part 1}
+\label{sec:del-1:-newpaint}
+
+I succeed with the part by following the suggested order given. The key point of this part is to consider that the \emph{lightPosition} in the shader is in eye-coordinates.\\
+The result can be seen in Figure \ref{fig:4-1}.
+
+
+
+
+\begin{figure}[hp]
+\centering
+\includegraphics[width=8cm]{../Screenshots/ex-4/1.png}
+\caption{Gouraud Shading}
+\label{fig:4-1}
+\end{figure}
+
+
+
+
+
+
+
+
+
+
+\section{Part 2}
+\label{sec:del-2:-select-pick-picks}
+
+
+I succeed with the part by following the suggested order given. User can toggle between directional and point light model by pressing \emph{L} key on keyboard.
+The result with directional light can be seen in Figure \ref{fig:4-2-1}. On the other hand, the result with point light source can be seen in Figure \ref{fig:4-2-2}.
+
+
+
+\begin{figure}[hp]
+\centering
+\includegraphics[width=8cm]{../Screenshots/ex-4/2-1.png}
+\caption{Directional Light Source}
+\label{fig:4-2-1}
+\end{figure}
+
+\begin{figure}[hp]
+\centering
+\includegraphics[width=8cm]{../Screenshots/ex-4/2-2.png}
+\caption{Point Light Source}
+\label{fig:4-2-2}
+\end{figure}
+
+
+
+
+
+\section{Part 3}
+\label{sec:line-singledouble-logik}
+\begin{itemize}
+  \item Phong shading is a appliation of phong lightning. If you consider each pixels' normal during phong lightning calculation, it is phong shading.
+
+  \item If you assign each polygon defined by vertices a normal, it is Gouraud's method. Calculations are done before rasterizing.
+If you assign each pixel a normal, it is Phong's method. Calculations are done after rasterizing (fragment shading).
+Gouraud's method is deceptively simple and Easy to compute as against Phong shading.
+  \item Unlike point light, rays are parallel to each other in directional light.
+
+  \item Yes. to make an analogy, the more rays your eyes reached to, the brighter you see where you look at.
+  \item Surfaces looks dull without it, somewhat like chalk. What we are missing are the highlights that we see re?ected from shiny objects.
+  \item As shininess is increased, the re?ected light is concentrated in a narrower region centered on the angle of a perfect re?ector.
+  \item Instead of computing reflection for every point on surface, we have replaced r*v component with n*h, where r is reflection and
+h is halfway vector. It is a succesful and efficient technique when used on flat or curved surfaces.
+  \item In some cases, i.e. when modelView matrix makes non-uniform transformations, modelView matrix cannot be used to convert normal vectors
+in object space to eye space coordinates. In such cases, normal matrix is used. It is equal to $ (M^{-1})^T $ where is upper left
+3x3 matrix of modelView matrix.
+ \item Eye space. Otherwise eye position dependent effects, such as specular lights would be harder to implement.
+
+\end{itemize}
+
+\section{Part 4}
+\label{sec:diagramprogram}
+
+Vores diagramprogram kan ses i aktion på figur \ref{fig:4-1}. Man
+indsætter nye elementer i diagrammet ved hjælp af
+højrekliksmenuen. Herefter kan elementerne flyttes ved at trække dem
+med musen. Holdes \texttt{CTRL} nede, inden og mens elementet vælges
+bliver elementet skaleret i forhold til musens bevægelse. Holdes
+\texttt{SHIFT} nede, inden og mens elementet vælges, bliver elementet
+roteret i forhold til musens bevægelse horisontalt i vinduet. Holdes
+\texttt{ALT} nede inden og mens et element vælges, bliver elementet
+slettet.
+
+

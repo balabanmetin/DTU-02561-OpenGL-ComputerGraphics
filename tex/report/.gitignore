@@ -1,0 +1,10 @@
+*.aux
+auto
+auto/
+auto/*
+*.log
+*.pdf
+*.toc
+*.lof
+\#*\#
+*.tex~

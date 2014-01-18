@@ -1,0 +1,22 @@
+﻿1.Phong shading is a appliation of phong lightning. If you consider each pixels' normal during phong lightning calculation, it is phong shading.
+
+2. If you assign each polygon defined by vertices a normal, it is Gouraud's method. Calculations are done before rasterizing. 
+If you assign each pixel a normal, it is Phong's method. Calculations are done after rasterizing (fragment shading). 
+Gouraud's method is deceptively simple and Easy to compute as against Phong shading.
+
+3. Unlike point light, rays are parallel to each other in directional light.
+
+4. Yes. to make an analogy, the more rays your eyes reached to, the brighter you see where you look at.
+
+5. Surfaces looks dull without it, somewhat like chalk. What we are missing are the highlights that we see reﬂected from shiny objects.
+
+6. As shininess is increased, the reﬂected light is concentrated in a narrower region centered on the angle of a perfect reﬂector.
+
+7.	Instead of computing reflection for every point on surface, we have replaced r*v component with n*h, where r is reflection and
+h is halfway vector. It is a succesful and efficient technique when used on flat or curved surfaces.
+
+8. In some cases, i.e. when modelView matrix makes non-uniform transformations, modelView matrix cannot be used to convert normal vectors
+in object space to eye space coordinates. In such cases, normal matrix is used. It is equal to (M^-1)^T where is upper left 
+3x3 matrix of modelView matrix. 
+
+9. Eye space. Otherwise eye position dependent effects, such as specular lights would be harder to implement.

@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="Angel\InitShader.cpp">
+      <Filter>Dependencies</Filter>
+    </ClCompile>
+    <ClCompile Include="Angel\Teapot.cpp">
+      <Filter>Dependencies</Filter>
+    </ClCompile>
+    <ClCompile Include="main-06-02.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="const-shader.vert" />
+    <None Include="const-shader.frag" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Dependencies">
+      <UniqueIdentifier>{52aad64b-38c2-44d0-b2e8-c5ae0c681c8b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Angel\Angel.h">
+      <Filter>Dependencies</Filter>
+    </ClInclude>
+    <ClInclude Include="Angel\CheckError.h">
+      <Filter>Dependencies</Filter>
+    </ClInclude>
+    <ClInclude Include="Angel\mat.h">
+      <Filter>Dependencies</Filter>
+    </ClInclude>
+    <ClInclude Include="Angel\vec.h">
+      <Filter>Dependencies</Filter>
+    </ClInclude>
+    <ClInclude Include="Angel\Teapot.h">
+      <Filter>Dependencies</Filter>
+    </ClInclude>
+    <ClInclude Include="Angel\patches.h">
+      <Filter>Dependencies</Filter>
+    </ClInclude>
+    <ClInclude Include="Angel\vertices.h">
+      <Filter>Dependencies</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

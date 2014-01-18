@@ -1,0 +1,145 @@
+\ProvidesPackage{report}
+
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{url}
+\usepackage{lastpage}
+\usepackage{bookmark}
+\usepackage{graphicx}
+\usepackage[all]{xy}
+\usepackage{amsmath}
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage{calc}
+\usepackage[marginpar]{todo}
+\usepackage{cmbright}
+\usepackage{charter}
+\usepackage{xspace}
+
+\renewcommand{\familydefault}{\rmdefault}
+
+\newcommand{\email}[1]{\href{mailto:#1}{\texttt{#1}}}
+
+\newcommand{\degree}{\ensuremath{^{\circ}}\xspace}
+%\newcommand{\deg}{\degree}
+
+% more width for figure numbers
+\setlength{\cftfigurenumwidth}{3.0em}
+
+%% TODO-changes
+\renewcommand{\todoitem}[2]{%
+\item \label{todolbl:\thetodo} %
+\ifx#1\todomark%
+\else\textbf{#1 }%
+\fi%
+(side~\pageref{todopage:\thetodo})\ #2}
+
+\newcommand{\@todomarginpar}[1]{\marginpar{\colorbox{black}{\textsf{\textbf{\color{white}{
+          #1
+    (\ref{todolbl:\thetodo})}}}}}}
+
+\renewcommand{\todoname}{Aasdaklj}
+\renewcommand{\todomark}{TODO}
+%%
+
+\definecolor{Dark}{gray}{.2}
+\definecolor{Medium}{gray}{.6}
+\definecolor{Light}{gray}{.8}
+
+\makechapterstyle{combined}{
+  \setlength{\midchapskip}{-60pt}
+  \setlength{\afterchapskip}{2.5cm}
+  \renewcommand*{\printchaptername}{}
+  \renewcommand*{\chapnumfont}{\normalfont\sffamily\bfseries\fontsize{80}{0}\selectfont}
+  \renewcommand*{\printchapternum}{\flushright\chapnumfont\textcolor[rgb]{.64,.79,.87}{\thechapter}}
+  \renewcommand*{\chaptitlefont}{\normalfont\sffamily\Huge\bfseries}
+  \renewcommand*{\printchaptertitle}[1]{%
+    \raggedright\chaptitlefont\parbox[t]{\textwidth-3cm}{\raggedright##1}}
+}
+
+\newlength{\mydrop}
+\renewcommand{\@maketitle}{%
+  \let\footnote\@mem@titlefootkill
+  \mydrop=0.1\textheight
+  \fboxsep 0.5\baselineskip
+  \sffamily
+  \vspace*{\mydrop}
+  \centering
+  {\textcolor{Light}{\HUGE \mysubject}}\par
+  \vspace{0.5\mydrop}
+  \colorbox{Dark}{\textcolor{white}{\normalfont\itshape\Large \@title}}\par
+  \vspace{\mydrop}
+  {\Large {\@bspreauthor \@author \@bspostauthor}}\par
+  \vfill
+  \vspace*{\mydrop}
+\begin{center}
+\includegraphics[width=6cm]{forside.png}
+\end{center}
+}
+
+\renewcommand{\maketitle}{\par
+  \begingroup
+    \@bsmarkseries
+    \def\@makefnmark{\@textsuperscript{%
+       \normalfont\@bsthanksheadpre \tamark \@bsthanksheadpost}}%
+    \long\def\@makefntext##1{\makethanksmark ##1}
+      \global\@topnum\z@
+      \@maketitle
+    \thispagestyle{empty}\@thanks
+  \endgroup
+  \@bscontmark  %  \setcounter{footnote}{0}%
+  \clearpage
+}
+
+\makepagestyle{introduction}
+  \makeevenfoot{introduction}{}{\thepage}{}
+  \makeoddfoot{introduction}{}{\thepage}{}
+
+\makepagestyle{body}
+  \makeevenhead{body}{\mysubject}{\mytitle}{\thepage}
+  \makeoddhead{body}{\mysubject}{\mytitle}{\thepage}
+  \makeheadrule{body}{\textwidth}{\normalrulethickness}
+
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{#1}{}}
+
+\chapterstyle{combined}
+
+\numberwithin{figure}{section}
+
+%\fixpdflayout
+
+\newcommand{\preamble}{
+\maketitle
+
+\pagestyle{introduction}
+  \pagenumbering{roman}
+
+  \tableofcontents
+  \clearpage
+
+  \listoffigures
+
+  %\newlength{\oldparindent}
+  %\setlength{\oldparindent}{\parindent}
+  %\setlength{\parindent}{0pt}
+  %\nonzeroparskip
+
+  % \plainbreak{1}
+  % Figurerne er nummereret på følgende måde:
+
+  % \texttt{<ugeopgavenummer>.<delopgavenummer>.<figurnummer>}
+
+  % Dvs. at figuren \emph{1.2.1} er den første figur, tilhørende den anden
+  % delopgave i den første ugeopgave.
+
+  %\setlength{\parindent}{\oldparindent}
+  %\traditionalparskip
+
+  \clearpage
+
+  \aliaspagestyle{chapter}{body}
+
+  \pagenumbering{arabic}
+  \pagestyle{body}
+}
